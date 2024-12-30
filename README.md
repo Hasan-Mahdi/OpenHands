@@ -86,13 +86,13 @@ export WORKSPACE_BASE="/mnt/d/Hello World"
 - **تشغيل OpenHands:**
 ```bash
 docker run -it --pull=always \
-    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.14-nikolaik \
+    -e SANDBOX_RUNTIME_CONTAINER_IMAGE="docker.all-hands.dev/all-hands-ai/runtime:0.14-nikolaik" \
     -e SANDBOX_USER_ID=$(id -u) \
     -e WORKSPACE_MOUNT_PATH="$WORKSPACE_BASE" \
     -v "$WORKSPACE_BASE:/opt/workspace_base:rw" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -p 3000:3000 \
-    -p 5000:5000 \  
+    -p 5000:5000 \
     -e LOG_ALL_EVENTS=true \
     --add-host host.docker.internal:host-gateway \
     --name openhands-app \
